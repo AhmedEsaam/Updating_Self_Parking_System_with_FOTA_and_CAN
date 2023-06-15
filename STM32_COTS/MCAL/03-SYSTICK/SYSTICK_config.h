@@ -1,7 +1,9 @@
 /**
  * @file SYSTICK_config.h
  * @author Doaa Hagag (doaahagag128@gmail.com)
- * @brief 
+ * @brief  Configuration file for the systick driver 
+ *          to configure interrupt, clock source,
+ *           and enable, disable systic.
  * @compiler:   GNU ARM-GCC
  * @controller: STM32F40ICCU6
  * @layer:      MCAL 
@@ -40,6 +42,5 @@
  * 
  */
 #define SYSTICK_ENABLE    ENABLE_SYSTIC
-
 
 #endif /*_SYSTICK_CONFIG_H*/
