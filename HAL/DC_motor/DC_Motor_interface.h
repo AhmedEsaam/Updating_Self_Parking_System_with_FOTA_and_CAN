@@ -4,8 +4,9 @@
  * Author       :	Abdelrhman Nasr Farag
  * Created on   :	june 9, 2023
  * Version      :	v1.0
-  * Compiler     :	ARM GCC
- * Controller   :    STM32(32-bit Architecture)
+ * Compiler     :	GNU ARM-GCC
+ * Controller   :  	STM32F401CCU6 (32-bit Architecture)
+ * Processor    :   Cortex M4 (32-bit Architecture)
  * Layer        :   HAL (ECUAL)
  * ----------------------------------------------------------------------------------
  *
