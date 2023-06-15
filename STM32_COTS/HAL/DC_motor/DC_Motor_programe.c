@@ -34,38 +34,23 @@ void HMotor_voidMotorInit(Motor_t* Copy_pMotor_t_Obj)
 	MGPIO_ErrSetPinMode (Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , OUPUT);
 
 }
-/*
-void HMotor_voidMotorRotate(EN_rotation_t Rotate_Direction)
-{
-	switch(Rotate_Direction)
-	{
-		case anticlockwise:
-			HMotor_voidMotorRotateAnticlockwise(Motor_t* Copy_pMotor_t_Obj);
-			break;
-		case clockwise:
-			HMotor_voidMotorRotateClockwise(Motor_t* Copy_pMotor_t_Obj);
-			break;
-		default:
-		break;
-	}
-}
-*/
+
 void HMotor_voidMotorRotateClockwise(Motor_t* Copy_pMotor_t_Obj)
 {
-	MGPIO_ErrSetPortOutputType(Copy_pMotor_t_Obj->MotorClockwisePort , Copy_pMotor_t_Obj->MotorClockwisePin , HIGH);
-	MGPIO_ErrSetPortOutputType(Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , LOW);
+	MGPIO_ErrSetPinValue(Copy_pMotor_t_Obj->MotorClockwisePort , Copy_pMotor_t_Obj->MotorClockwisePin , HIGH);
+	MGPIO_ErrSetPinValue(Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , LOW);
 }
 
 void HMotor_voidMotorRotateAnticlockwise(Motor_t* Copy_pMotor_t_Obj)
 {
-	MGPIO_ErrSetPortOutputType(Copy_pMotor_t_Obj->MotorClockwisePort , Copy_pMotor_t_Obj->MotorClockwisePin , LOW);
-	MGPIO_ErrSetPortOutputType(Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , HIGH);
+	MGPIO_ErrSetPinValue(Copy_pMotor_t_Obj->MotorClockwisePort , Copy_pMotor_t_Obj->MotorClockwisePin , LOW);
+	MGPIO_ErrSetPinValue(Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , HIGH);
 }
 
 void HMotor_voidMotorStop(Motor_t* Copy_pMotor_t_Obj)
 {
-	MGPIO_ErrSetPortOutputType(Copy_pMotor_t_Obj->MotorClockwisePort , Copy_pMotor_t_Obj->MotorClockwisePin , LOW);
-	MGPIO_ErrSetPortOutputType(Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , LOW);
+	MGPIO_ErrSetPinValue(Copy_pMotor_t_Obj->MotorClockwisePort , Copy_pMotor_t_Obj->MotorClockwisePin , LOW);
+	MGPIO_ErrSetPinValue(Copy_pMotor_t_Obj->MotorAnticlockwisePort , Copy_pMotor_t_Obj->MotorAnticlockwisePin , LOW);
 }
 
 
