@@ -54,9 +54,13 @@ void main(void)
 
 }
 
-static void intAction(void) {
+static void intAction(void)
+{
 	HMotor_voidMotorStop(&RightMotors);
 	HMotor_voidMotorStop(&LeftMotors);
 	while (1)
 		;
+
+//	asm("NOP"); // Do Nothing
+
 }
