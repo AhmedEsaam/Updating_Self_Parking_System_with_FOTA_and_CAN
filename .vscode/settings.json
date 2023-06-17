@@ -1,4 +1,9 @@
 {
+<<<<<<< HEAD
+    "files.associations": {
+        "tim1_int.h": "c"
+    }
+=======
   "C_Cpp_Runner.cCompilerPath": "gcc",
   "C_Cpp_Runner.cppCompilerPath": "g++",
   "C_Cpp_Runner.debuggerPath": "gdb",
@@ -54,4 +59,5 @@
   "C_Cpp_Runner.useUndefinedSanitizer": false,
   "C_Cpp_Runner.useLeakSanitizer": false,
   "C_Cpp_Runner.showCompilationTime": false
+>>>>>>> 2b0c579b0b738a58590bb7fd94c44811226094c2
 }
