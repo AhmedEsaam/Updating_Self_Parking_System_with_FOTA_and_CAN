@@ -20,6 +20,8 @@
 #include "TIM1_config.h"
 
 
+#define PERIOD 1000
+#define DUTY	500
 
 void MTIM1_voidInit()
 {
@@ -30,13 +32,14 @@ void MTIM1_voidInit()
             /*Select the output mode by writing CCS bits in CCMRx register*/
                 CLR_BIT (TIM1->CCMR2  , CC3S1);
                 CLR_BIT (TIM1->CCMR2  , CC3S0);
-/**/        /*select polarity by writing the CCxP bit in CCER Register */
+/**/        /*select polarity by writing the CCxP bit in CCER Register (Active high) */
                 CLR_BIT (TIM1->CCER ,CC3P );
         /* Select the BWM Mode (PWM1 OR PWM2) By writing OCxM bits in CCMRx register */
             SET_BIT (TIM1->CCMR2 , OC3M2);
             SET_BIT (TIM1->CCMR2 , OC3M1);
-            SET_BIT (TIM1->CCMR2 , OC3M0);
+            CLR_BIT (TIM1->CCMR2 , OC3M0);
         /* Program the period and the duty cycle respectively in ARR and CCRx Registers */
+/**/        TIM1->PSC = 15999; 
         /* Set the preload bit in CCMRx Register ARPE bit in the CR1 register */
         /* Select counting mode */
             /* PWM Edge-aligned Mode : the counter must be configured up counting or dowm counting */

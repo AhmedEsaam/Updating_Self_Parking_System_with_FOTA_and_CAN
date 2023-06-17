@@ -26,8 +26,8 @@ typedef struct TIM1_priv
     volatile u32 CCMR2;     /* capture/compare mode register 2 */
     volatile u32 CCER;      /* capture/compare enable register */
     volatile u32 CNT;
-    volatile u32 PSC;
-    volatile u32 ARR;  //
+    volatile u32 PSC;       /* Timer Prescaler */
+    volatile u32 ARR;       /**/
     volatile u32 RCR;
     volatile u32 CCR1;
     volatile u32 CCR2;
@@ -43,7 +43,6 @@ typedef struct TIM1_priv
 #define TIM1   ((volatile TIM1_t *)TIM1_BASE_ADDRESS)
 
 #define TIM1_PWM 0 
-
 
 /**CCMR2**/
 #define     OC4CE   15  /* Output compare 4 clear enable*/

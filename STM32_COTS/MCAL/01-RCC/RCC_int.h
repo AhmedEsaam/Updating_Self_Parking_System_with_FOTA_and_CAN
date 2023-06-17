@@ -25,6 +25,19 @@
 #define     RCC_GPIOB       1
 #define     RCC_GPIOC       2
 
+#define RCC_TIM1            0
+#define RCC_USART1          4
+#define RCC_USART6          5
+#define RCC_ADC1            8
+#define RCC_SDIO            11
+#define RCC_SPI1            12
+#define RCC_SPI4            13
+#define RCC_SYSCFG          14
+#define RCC_TIM9            16
+#define RCC_TIM10           17
+#define RCC_TIM11           18
+
+
 typedef enum{
     RCC_CLOCK_HSI,
     RCC_CLOCK_HSE,
@@ -45,7 +58,10 @@ void MRCC_voidInit(void);
  * @param Copy_u8PeripheralBus 
  *          Choose From : RCC_AHB1, RCC_AHB2, RCC_APB1, RCC_APB2
  * @param Copy_u8PeripheralID 
- *          choose From : RCC_GPIOA, RCC_GPIOB, RCC_GPIOC
+ *          for RCC_AHB1 choose From : RCC_GPIOA, RCC_GPIOB, RCC_GPIOC
+ *          for RCC_APB2 choose from : RCC_TIM1, RCC_USART1, RCC_USART6, RCC_ADC1,
+ *                                     RCC_SDIO, RCC_SPI1, RCC_SPI4, RCC_SYSCFG, 
+ *                                     RCC_TIM9, RCC_TIM10, RCC_TIM11
  * @return ** void 
  */
 void MRCC_voidEnablePeripheralClock(u8 Copy_u8PeripheralBus, u8 Copy_u8PeriperhalID);
