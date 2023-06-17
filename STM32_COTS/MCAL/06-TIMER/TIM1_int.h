@@ -16,7 +16,7 @@
 
 #define TIM1_MODE   TIM1_PWM
 
-void MTIM1_voidInit(u8 Mode);
+void MTIM1_voidInit();
 
 
 #endif /*_TIM1_INT_H_*/

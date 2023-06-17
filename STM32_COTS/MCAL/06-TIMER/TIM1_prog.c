@@ -21,20 +21,21 @@
 
 
 
-void MTIM1_voidInit(u8 Mode)
+void MTIM1_voidInit()
 {
-    switch ( mode)
+    switch ( TIM1_MODE)
     {
     case TIM1_PWM :
-        /* Select PWM output mode */
-            SET_BIT (TIM1->CCMR2 , OC4M2);
-            SET_BIT (TIM1->CCMR2 , OC4M1);
-            SET_BIT (TIM1->CCMR2 , OC4M0);
         /* Configure the output pin */
-            /*Select the outpu mode by writing CCS bits in CCMRx register*/
-            /*select polarity by writing the CCxP bit in CCER Register */
-        /* Select the polarity by writing the CCxP bit in CCER Register */
+            /*Select the output mode by writing CCS bits in CCMRx register*/
+                CLR_BIT (TIM1->CCMR2  , CC3S1);
+                CLR_BIT (TIM1->CCMR2  , CC3S0);
+/**/        /*select polarity by writing the CCxP bit in CCER Register */
+                CLR_BIT (TIM1->CCER ,CC3P );
         /* Select the BWM Mode (PWM1 OR PWM2) By writing OCxM bits in CCMRx register */
+            SET_BIT (TIM1->CCMR2 , OC3M2);
+            SET_BIT (TIM1->CCMR2 , OC3M1);
+            SET_BIT (TIM1->CCMR2 , OC3M0);
         /* Program the period and the duty cycle respectively in ARR and CCRx Registers */
         /* Set the preload bit in CCMRx Register ARPE bit in the CR1 register */
         /* Select counting mode */

@@ -23,8 +23,8 @@ typedef struct TIM1_priv
     volatile u32 SR;
     volatile u32 EGR;
     volatile u32 CCMR1;
-    volatile u32 CCMR2; // capture/compare mode register 2 
-    volatile u32 CCER;   
+    volatile u32 CCMR2;     /* capture/compare mode register 2 */
+    volatile u32 CCER;      /* capture/compare enable register */
     volatile u32 CNT;
     volatile u32 PSC;
     volatile u32 ARR;  //
@@ -62,4 +62,26 @@ typedef struct TIM1_priv
 #define     OC3FE    2  /* Output compare 3 fast enable */
 #define     CC3S1    1  /* Capture/Compare 3 selection bit 1*/
 #define     CC3S0    0  /* Capture/Compare 3 selection bit 0*/
+     
+/*CCER*/             
+#define     CC4P    13  /* Capture/Compare 4 output polarity */
+#define     CC4E    12  /* Capture/Compare 4 output enable */
+#define     CC3NP   11  /* Capture/Compare 3 complementary output polarity */
+#define     CC3NE   10  /* Capture/Compare 3 complementary output enable */
+#define     CC3P    9   /* Capture/Compare 3 output polarity */
+#define     CC3E    8   /* Capture/Compare 3 output enable */
+#define     CC2NP   7   /* Capture/Compare 2 complementary output polarity */
+#define     CC2NE   6   /* Capture/Compare 2 complementary output enable */
+#define     CC2P    5   /* Capture/Compare 2 output polarity */
+#define     CC2E    4   /* Capture/Compare 2 output enable */
+#define     CC1NP   3   /* Capture/Compare 1 complementary output polarity */
+#define     CC1NE   2   /* Capture/Compare 1 complementary output enable */
+#define     CC1P    1   /* Capture/Compare 1 output polarity */
+#define     CC1E    0   /* Capture/Compare 1 output enable */
+
+
+
+
+
+
 #endif /*_TIM1_PRIV_H_*/
