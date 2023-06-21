@@ -39,7 +39,7 @@ void main(void)
 	HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
 
 	MGPIO_ErrSetPinMode(GPIO_PORTA, GPIO_PIN6, GPIO_OUTPUT);
-	MGPIO_ErrGetPinValue(GPIO_PORTA, GPIO_PIN6, HIGH);
+	MGPIO_ErrSetPinValue(GPIO_PORTA, GPIO_PIN6, HIGH);
 
 	//	IR
 	IR_t Local_IR1Sensor = { GPIO_PORTA, GPIO_PIN0 };
