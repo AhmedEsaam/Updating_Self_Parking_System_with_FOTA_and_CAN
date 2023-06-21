@@ -38,6 +38,9 @@ void main(void)
 	HMotor_voidMotorRotateAnticlockwise(&RightMotors);
 	HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
 
+	MGPIO_ErrSetPinMode(GPIO_PORTA, GPIO_PIN6, GPIO_OUTPUT);
+	MGPIO_ErrGetPinValue(GPIO_PORTA, GPIO_PIN6, HIGH);
+
 	//	IR
 	IR_t Local_IR1Sensor = { GPIO_PORTA, GPIO_PIN0 };
 	IR_voidInit(&Local_IR1Sensor);
@@ -56,11 +59,11 @@ void main(void)
 
 static void intAction(void)
 {
-//	HMotor_voidMotorStop(&RightMotors);
-//	HMotor_voidMotorStop(&LeftMotors);
-//	while (1)
-//		;
+	HMotor_voidMotorStop(&RightMotors);
+	HMotor_voidMotorStop(&LeftMotors);
+	while (1)
+		;
 
-	asm("NOP"); // Do Nothing
+	// asm("NOP"); // Do Nothing
 
 }
