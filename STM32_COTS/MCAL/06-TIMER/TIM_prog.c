@@ -1,13 +1,13 @@
 /**
  * @file TIM_prog.c
  * @author Doaa Hagag (doaahagag128@gmail.com)
- * @brief 
+ * @brief 	for timer2 pwm
  * @compiler:   GNU ARM-GCC
  * @controller: STM32F40ICCU6
  * @layer:      MCAL 
- * @version 2
  * @date 2023-06-15
- * 
+ * @version 2
+ *
  * @copyright Copyright (c) 2023
  * 
  */
@@ -18,7 +18,6 @@
 #include "TIM_int.h"
 #include "TIM_priv.h"
 #include "TIM_config.h"
-
 
 
 // void MTIM1_voidInit(u32 PERIOD, u32 DUTY)
@@ -163,7 +162,6 @@ void MGTimer2_voidInit(CHANNE_t Copy_Timer_Channel)
 		CLR_BIT(TIMER2_BASE -> CR1,4);
 		CLR_BIT(TIMER2_BASE -> CR1,5);
 		CLR_BIT(TIMER2_BASE -> CR1,6);
-		break;
 }
 void MGTimer2_void_Prescaller( u16 Copy_u16Prescaller)
 {
@@ -193,6 +191,7 @@ void MGTimer2_void_CompValue(CHANNE_t Copy_Timer_Channel, u16 Copy_u16Value)
 		break;
 	default:
 		break;
+	}
 }
 void MGTimer2_voidStart(void)
 {

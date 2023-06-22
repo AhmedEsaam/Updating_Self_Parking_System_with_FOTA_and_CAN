@@ -1,7 +1,7 @@
 /**
  * @file TIM_int.h
  * @author Doaa Hagag (doaahagag128@gmail.com)
- * @brief 
+ * @brief 		for timer2 pwm
  * @compiler:   GNU ARM-GCC
  * @controller: STM32F40ICCU6
  * @layer:      MCAL 
