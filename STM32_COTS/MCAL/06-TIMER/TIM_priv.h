@@ -64,13 +64,15 @@ typedef	struct
 	volatile u32 OR;
 }TIM_t;
 
-#define     TIM1_BASE_ADDRESS          0x40010000
-#define 	TIM1   ((volatile TIM1_t *)TIM1_BASE_ADDRESS)
+#define     Timer1_BASE_ADDRESS     (0x40010000)
+#define 	Timer2_BASE_ADDRESS		(0x40000000)
+#define 	Timer3_BASE_ADDRESS		(0x40000400)
 
+#define 	TIM1   ((volatile TIM1_t *)Timer1_BASE_ADDRESS)
 
 
 #define 	TIMER2_BASE		((volatile TIM_t *)0x40000000)
-#define 	TIMER3_BASE		((volatile TIM_t *)0x40000400)
+#define 	TIMER3_BASE		((volatile TIM_t *)Timer3_BASE_ADDRESS)
 #define 	TIMER4_BASE		((volatile TIM_t *)0x40000800)
 #define 	TIMER5_BASE		((volatile TIM_t *)0x40000C00)
 

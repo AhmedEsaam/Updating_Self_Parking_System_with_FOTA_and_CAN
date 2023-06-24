@@ -202,3 +202,60 @@ void MGTimer2_voidStop(void)
 {
 	CLR_BIT(TIMER2_BASE -> CR1, CR1_CEN);
 }
+
+
+void Timer3_voidStart(void)
+{
+	SET_BIT(TIMER3_BASE -> CR1 , 0);			/* Enable Counter */
+
+	CLEAR_BIT(TIMER3_BASE -> CR1 , 4);		/* counter mode is up counting */
+}
+
+void Timer3_u16Count(u16 Copy_u16Count)
+{
+	TIMER3_BASE -> CNT = Copy_u16Count;	/* Intial Value Of TIMER3_BASE */
+}
+
+u32  Timer3_voidReadCaptureVal(void)
+{
+	return TIMER3_BASE -> CCR1;			/* Return Captured Value */
+}
+
+void Timer3_voidPrescale(u16 Copy_u16Prescaler)
+{
+	TIMER3_BASE -> PSC = Copy_u16Prescaler -1 ;	/* TIMER3_BASE Prescaler */
+}
+
+
+
+void Timer3_voidCapture_Compare_Init(void)
+{
+	/*DIER Register*/
+
+	SET_BIT(TIMER3_BASE -> DIER , 1);	/* Capture/Compare interrupt enable */
+
+	/*CCMR1 Register*/
+
+	SET_BIT(TIMER3_BASE -> CCMR1 , 0);	/* configure TIMER3_BASE ch1 as input */
+	CLEAR_BIT(TIMER3_BASE -> CCMR1 , 1);
+
+	CLEAR_BIT(TIMER3_BASE -> CCMR1 , 2);	/* configure TIMER3_BASE ch1 to capture at every edge detected */
+	CLEAR_BIT(TIMER3_BASE -> CCMR1 , 3);
+
+
+	CLEAR_BIT(TIMER3_BASE -> CCMR1 , 6);
+	CLEAR_BIT(TIMER3_BASE -> CCMR1 , 7);
+
+	/*CCER Register*/
+
+	SET_BIT(TIMER3_BASE -> CCER , 0);	/* Capture Enabled */
+
+
+	SET_BIT(TIMER3_BASE -> CCER , 1);	/* Capture/Compare channel captures on both edges (rising & falling) */
+	SET_BIT(TIMER3_BASE -> CCER , 3);
+
+	Timer3_voidPrescale(72);
+
+	TIMER3_BASE -> ARR = 65535;			/*Max of Ticks*/
+
+}

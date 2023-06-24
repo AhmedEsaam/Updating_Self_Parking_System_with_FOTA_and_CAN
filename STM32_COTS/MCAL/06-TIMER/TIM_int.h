@@ -34,12 +34,27 @@ typedef enum
 	CHANNEL4
 }CHANNE_t;
 
+typedef enum
+{
+	rising,
+	falling,
+	both_edges,
+}CCEdge_t;
+
+
 void MGTimer2_voidInit(CHANNE_t Copy_Timer_Channel);
 void MGTimer2_void_Prescaller( u16 Copy_u16Prescaller);
 void MGTimer2_void_PeriodValue( u16 Copy_u16Value);
 void MGTimer2_void_CompValue(CHANNE_t Copy_Timer_Channel, u16 Copy_u16Value);
 void MGTimer2_voidStart(void);
 void MGTimer2_voidStop(void);
+
+void Timer3_voidStart(void);
+u16 Timer3_voidStatus(void);
+void Timer3_u16Count(u16 Copy_u16Count);
+u32  Timer3_voidReadCaptureVal(void);
+void Timer3_voidPrescale(u16 Copy_u16Prescaler);
+void Timer3_voidCapture_Compare_Init(void);
 
 
 
