@@ -12,6 +12,7 @@ C_SRCS += \
 ../src/RCC_prog.c \
 ../src/SPI_program.c \
 ../src/SYSTICK_prog.c \
+../src/TIM_prog.c \
 ../src/initialize-hardware.c \
 ../src/main.c \
 ../src/stm32f4xx_hal_msp.c \
@@ -26,6 +27,7 @@ OBJS += \
 ./src/RCC_prog.o \
 ./src/SPI_program.o \
 ./src/SYSTICK_prog.o \
+./src/TIM_prog.o \
 ./src/initialize-hardware.o \
 ./src/main.o \
 ./src/stm32f4xx_hal_msp.o \
@@ -40,6 +42,7 @@ C_DEPS += \
 ./src/RCC_prog.d \
 ./src/SPI_program.d \
 ./src/SYSTICK_prog.d \
+./src/TIM_prog.d \
 ./src/initialize-hardware.d \
 ./src/main.d \
 ./src/stm32f4xx_hal_msp.d \
