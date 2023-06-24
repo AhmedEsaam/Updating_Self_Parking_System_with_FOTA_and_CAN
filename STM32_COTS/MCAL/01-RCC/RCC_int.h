@@ -37,6 +37,12 @@
 #define RCC_TIM10           17
 #define RCC_TIM11           18
 
+#define RCC_TIM5			3
+#define RCC_TIM4			2
+#define RCC_TIM3			1
+#define RCC_TIM2			0
+
+
 
 typedef enum{
     RCC_CLOCK_HSI,
