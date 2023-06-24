@@ -1,46 +1,38 @@
-/**
- * @file SYSTICK_config.h
- * @author Doaa Hagag (doaahagag128@gmail.com)
- * @brief  Configuration file for the systick driver 
- *          to configure interrupt, clock source,
- *           and enable, disable systic.
- * @compiler:   GNU ARM-GCC
- * @controller: STM32F40ICCU6
- * @layer:      MCAL 
- * @version 1.0
- * @date 2023-05-07
- * 
- * @copyright Copyright (c) 2023
- * 
+/*
+ * ----------------------------------------------------------------------------------
+ * Filename		:	SYSTICK_config.h
+ *
+ * Author		:	Ahmed Essam El-Mogy
+ * Created on	:	MAY 8, 2023
+ * Version		:	v1.0
+ * C Standard	:	C99
+ * Compiler		:	GNU ARM GCC
+ * Controller	:	STM32F401CCU6 (32-bit Architecture)
+ * Layer		:	MCAL
+ * ----------------------------------------------------------------------------------
+ *
+ * ----------------------------------------------------------------------------------
+ * Version 		Date 				Author 						Describtion
+ * v1.0 		MAY 8, 2023 		Ahmed Essam El-Mogy 		Initial Creation
+ * ----------------------------------------------------------------------------------
  */
 
-#ifndef _SYSTICK_CONFIG_H
-#define _SYSTICK_CONFIG_H
-
-/**
- * @choose:  ENABLE_SYSTIC_INT  
- *           DISABLE_SYSTIC_INT
- * 
- */
-#define SYSTICK_INTERRUPT_STATUS    DISABLE_SYSTIC_INT
+#define SYSTICK_CONFIG_H_
+#ifdef SYSTICK_CONFIG_H_
 
 
+/* options:
+    SYSTICK_CLK_AHB_DIVIDED_BY_8
+    SYSTICK_CLK_AHB
+*/
+#define     SYSTICK_CLK_SOURCE              SYSTICK_CLK_AHB_DIVIDED_BY_8
 
-/**
- * @choose:  AHB_CLOCK
- *           AHP_CLOCK_DIV_BY_8
- * 
- * 
- */
-#define SYSTICK_CLK_SOURCE  AHP_CLOCK_DIV_BY_8
+#define     SYSTICK_INTERRUPT_EN            SYSTICK_INTERRUPT_ENABLE
+
+#define     SYSTICK_EN                      SYSTICK_ENABLE
 
 
 
-/**
- * @choose:  ENABLE_SYSTIC  
- *           DISABLE_SYSTIC
- * 
- */
-#define SYSTICK_ENABLE    ENABLE_SYSTIC
 
-#endif /*_SYSTICK_CONFIG_H*/
+
+#endif /* SYSTICK_CONFIG_H_*/

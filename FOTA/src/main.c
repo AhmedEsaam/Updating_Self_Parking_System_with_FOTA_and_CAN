@@ -2,7 +2,7 @@
 #include "BIT_MATH.h"
 #include "RCC_int.h"
 #include "GPIO_interface.h"
-#include "SYSTICK_int.h"
+#include "SYSTICK_interface.h"
 #include "NVIC_interface.h"
 #include "EXTI_interface.h"
 #include "TIM_int.h"
@@ -53,21 +53,21 @@ void main(void)
 	MRCC_voidEnablePeripheralClock(2,0); // Timer
 
 	// Initialize SYSTIC
-	MSYSTICK_voidInit();
+	MSYSTICK_ErrInit();
 
 	MGPIO_ErrSetPinMode(GPIO_PORTB,GPIO_PIN10,GPIO_ALTERNATE_FUNCTION);
 	MGPIO_ErrSetPinAlternateFunction(GPIO_PORTB,GPIO_PIN10,MGPIO_AF1);
 
 	MGTimer2_voidInit(CHANNEL3);
-	MGTimer2_void_Prescaller(160);
-	MGTimer2_void_PeriodValue(1000-1);
+	MGTimer2_void_Prescaller(42); //160
+	MGTimer2_void_PeriodValue(255); // 1000-1
 	MGTimer2_voidStart();
 
-	MGTimer2_void_CompValue(CHANNEL3, 500);
+	MGTimer2_void_CompValue(CHANNEL3, 100);
 
 
 	// Enable SYSTICK
-	MSYSTICK_voidEnable();
+	// MSYSTICK_voidEnable();
 
 	HMotor_voidMotorInit(&RightMotors);
 	HMotor_voidMotorInit(&LeftMotors);
@@ -75,7 +75,7 @@ void main(void)
 	//  move forward
 	HMotor_voidMotorRotateAnticlockwise(&RightMotors);
 	HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
-	MSYSTICK_voidSetBusyWait(2000000);
+	MSYSTICK_ErrSetBusyWait(2000000);
 
 	//	IR
 	IR_t Local_IR1Sensor = { GPIO_PORTA, GPIO_PIN0 };
@@ -149,36 +149,45 @@ void main(void)
 
 			// break;
 			case Parcking:
+
+//test
+	// HMotor_voidMotorRotateClockwise(&RightMotors);
+	// HMotor_voidMotorRotateClockwise(&LeftMotors);
+	// MSYSTICK_ErrSetBusyWait(1000000);
+	// MGPIO_ErrSetPinValue(GPIO_PORTA, GPIO_PIN6, LOW);
+
+	// HMotor_voidMotorRotateAnticlockwise(&RightMotors);
+	// HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
+	// MSYSTICK_ErrSetBusyWait(1000000);
+
+
 					// move back right with suitble angle 
 					for (int i=0; i <2; i++)
 					{
 						HMotor_voidMotorStop(&RightMotors);
 						HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
-						MSYSTICK_voidSetBusyWait(7000000);
+						MSYSTICK_ErrSetBusyWait(700000);
 						// back
-//						HMotor_voidMotorRotateAnticlockwise(&RightMotors);
-//						HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
-//						MSYSTICK_voidSetBusyWait(10000);
-
-						HMotor_voidMotorStop(&RightMotors);
-						MSYSTICK_voidSetBusyWait(2000000);
+						HMotor_voidMotorRotateAnticlockwise(&RightMotors);
+						HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
+						MSYSTICK_ErrSetBusyWait(100000);
 
 					}
 
 					// move back left with the same angle and same length 
-					// for (int i=0; i <2; i++)
-					// {
-					// 	HMotor_voidMotorStop(&LeftMotors);
-					// 	HMotor_voidMotorRotateAnticlockwise(&RightMotors);
-					// 	MSYSTICK_voidSetBusyWait(70000);
-					// 	// back
-					// 	HMotor_voidMotorRotateAnticlockwise(&RightMotors);
-					// 	HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
-					// 	MSYSTICK_voidSetBusyWait(10000);
-					// }
+					for (int i=0; i <2; i++)
+					{
+						HMotor_voidMotorStop(&LeftMotors);
+						HMotor_voidMotorRotateAnticlockwise(&RightMotors);
+						MSYSTICK_ErrSetBusyWait(700000);
+						// back
+						HMotor_voidMotorRotateAnticlockwise(&RightMotors);
+						HMotor_voidMotorRotateAnticlockwise(&LeftMotors);
+						MSYSTICK_ErrSetBusyWait(100000);
+					}
 					// back to idle mode 
 					 local_u8State = Idle;
-//				}
+				
 			break;
 			default:
 			break;

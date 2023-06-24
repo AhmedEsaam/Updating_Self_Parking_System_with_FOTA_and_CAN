@@ -11,7 +11,7 @@ C_SRCS += \
 ../src/NVIC_program.c \
 ../src/RCC_prog.c \
 ../src/SPI_program.c \
-../src/SYSTICK_prog.c \
+../src/SYSTICK_program.c \
 ../src/TIM_prog.c \
 ../src/initialize-hardware.c \
 ../src/main.c \
@@ -26,7 +26,7 @@ OBJS += \
 ./src/NVIC_program.o \
 ./src/RCC_prog.o \
 ./src/SPI_program.o \
-./src/SYSTICK_prog.o \
+./src/SYSTICK_program.o \
 ./src/TIM_prog.o \
 ./src/initialize-hardware.o \
 ./src/main.o \
@@ -41,7 +41,7 @@ C_DEPS += \
 ./src/NVIC_program.d \
 ./src/RCC_prog.d \
 ./src/SPI_program.d \
-./src/SYSTICK_prog.d \
+./src/SYSTICK_program.d \
 ./src/TIM_prog.d \
 ./src/initialize-hardware.d \
 ./src/main.d \
